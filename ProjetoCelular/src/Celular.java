@@ -1,18 +1,16 @@
 public class Celular {
 
-    private String marca;
     private String modelo;
     private Bateria bateria;
     private int volume;
 
-    public Celular(String marca, String modelo, Bateria bateria) {
-        this.setMarca(marca);
-        this.setModelo(modelo);
+    public Celular(String modelo, Bateria bateria) {
+        this.modelo = modelo;
         this.bateria = bateria;
     }
 
-    public void setMarca(String marca) {
-        this.marca = marca;
+    public String getModelo() {
+        return modelo;
     }
 
     public void setModelo(String modelo) {
@@ -32,14 +30,10 @@ public class Celular {
     }
 
     public int getVolume() {
-
         return volume;
-
     }
 
     public int getBateria() {
-
         return bateria.getPorcentagem();
-
     }
 }

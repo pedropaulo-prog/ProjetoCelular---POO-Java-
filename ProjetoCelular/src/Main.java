@@ -2,36 +2,28 @@ public class Main {
 
     public static void main(String[] args) {
 
-        Bateria bateria = new Bateria(0);
+        Apple apple = new Apple();
 
-        Celular celular = new Celular(
-                "Apple",
-                "iPhone 17 Pro Max",
-                bateria);
+        System.out.println("APPLE");
+        System.out.println("Modelo: " + apple.getModelo());
+        System.out.println("Airdrop: " + apple.isAirdrop());
 
-        // Teste do volume
-        System.out.println("Volume inicial: " + celular.getVolume());
+        apple.aumentarVolume(20);
+        System.out.println("Volume: " + apple.getVolume());
 
-        celular.aumentarVolume(20);
+        apple.carregarBateria(80);
+        System.out.println("Bateria: " + apple.getBateria() + "%");
 
-        System.out.println("Volume após aumentar: " + celular.getVolume());
+        Motorola motorola = new Motorola();
 
-        celular.aumentarVolume(50);
+        System.out.println("\nMOTOROLA");
+        System.out.println("Modelo: " + motorola.getModelo());
+        System.out.println("Botoes interativos: " + motorola.isBotoesInterativos());
 
-        System.out.println("Volume após tentativa inválida: " + celular.getVolume());
+        motorola.aumentarVolume(30);
+        System.out.println("Volume: " + motorola.getVolume());
 
-        // Teste da bateria
-        System.out.println("Bateria inicial: " + celular.getBateria());
-
-        celular.carregarBateria(30);
-
-        System.out.println("Bateria após carregar: " + celular.getBateria());
-
-        celular.carregarBateria(50);
-
-        System.out.println("Bateria após tentativa inválida: " + celular.getBateria());
-
-        System.out.println("Bateria do objeto associado: " + bateria.getPorcentagem() + "%");
-
+        motorola.carregarBateria(70);
+        System.out.println("Bateria: " + motorola.getBateria() + "%");
     }
 }
