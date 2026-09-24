@@ -1,19 +1,14 @@
-**# Projeto Celular - POO**
-
+# Projeto Celular - POO
 Atividade realizada em classe no dia ********20/08/26****** na aula de Programação Orientada a Objetos, a qual será dada continuidade a cada aula até o fim do semestre. Portanto, esse Readme.md irá ser atualizado conforme a evolução do projeto, podendo haver alterações no seu contéudo, bem como remoção de antigas informações que não fazem mais sentido e adição de novas.
 
-**## Sobre o projeto**
+## Sobre o projeto
+Este projeto foi desenvolvido em Java utilizando conceitos de Programação Orientada a Objetos (POO), no qual o objeto escolhido inicialmente foi um **celular**, representando o aparelho utilizado no mundo real para realizar diversas funções.
 
-Este projeto foi desenvolvido em Java utilizando conceitos de Programação Orientada a Objetos (POO), no qual o objeto escolhido inicialmente foi um ********celular******, representando o aparelho utilizado no mundo real para realizar diversas funções.
-
-Ao longo das aulas, o projeto evoluiu com a aplicação de conceitos como encapsulamento, construtores, associação entre objetos e herança (generalização).
-
-Atualmente, a classe `Celular` representa a classe principal do projeto, sendo utilizada como superclasse para diferentes tipos de celulares, como `Apple` e `Motorola`.
+Ao longo das aulas, o projeto evoluiu com a aplicação de conceitos como encapsulamento, construtores, associação entre objetos e herança (generalização). Atualmente, a classe `Celular` representa a classe principal do projeto, sendo utilizada como superclasse para diferentes tipos de celulares, como `Apple` e `Motorola`.
 
 A classe `Celular` possui características como modelo, bateria e volume, além de comportamentos que permitem alterar seu estado. As classes `Apple` e `Motorola` herdam esses comportamentos e possuem características específicas de cada fabricante.
 
-**## Classes**
-
+## Classes
 Atualmente, o projeto possui as seguintes classes:
 
 * `Celular`: superclasse que representa as características e comportamentos comuns aos celulares.
@@ -22,8 +17,7 @@ Atualmente, o projeto possui as seguintes classes:
 * `Bateria`: classe responsável por representar a bateria e controlar sua porcentagem.
 * `Main`: classe responsável por criar os objetos e realizar os testes do projeto.
 
-**## Atributos**
-
+## Atributos
 A classe `Celular` possui os seguintes atributos:
 
 * `modelo`: representa o modelo do celular.
@@ -52,11 +46,8 @@ A classe `Motorola` possui o seguinte atributo:
 
   * Inicia como `true`.
 
-**## Construtores**
-
-Na aula de ********10/09/26******, foi criado um construtor para a classe `Celular`, definindo os atributos essenciais para o nascimento do objeto.
-
-Posteriormente, na aula de ********17/09/26******, com a associação entre `Celular` e `Bateria`, o construtor passou a receber também um objeto `Bateria`.
+## Construtores
+Na aula de **10/09/26**, foi criado um construtor para a classe `Celular`, definindo os atributos essenciais para o nascimento do objeto. Posteriormente, na aula de **17/09/26**, com a associação entre `Celular` e `Bateria`, o construtor passou a receber também um objeto `Bateria`.
 
 Atualmente, o construtor da classe `Celular` recebe `modelo` e um objeto `Bateria`:
 
@@ -89,10 +80,9 @@ public Motorola() {
 
 Dessa forma, as classes filhas aproveitam a estrutura já existente na classe `Celular`, enquanto adicionam suas próprias características.
 
-**## Métodos**
+## Métodos
 
-**### getModelo()**
-
+### getModelo()
 O método `getModelo()` retorna o modelo do celular.
 
 ```java
@@ -101,8 +91,7 @@ public String getModelo() {
 }
 ```
 
-**### setModelo()**
-
+### setModelo()
 O método `setModelo(String modelo)` permite alterar o modelo do celular.
 
 ```java
@@ -130,8 +119,7 @@ public void aumentarVolume(int quantidade) {
 }
 ```
 
-**### getVolume()**
-
+### getVolume()
 O método `getVolume()` retorna o volume atual do celular.
 
 ```java
@@ -140,8 +128,7 @@ public int getVolume() {
 }
 ```
 
-**### carregarBateria()**
-
+### carregarBateria()
 O método `carregarBateria(int quantidade)` solicita que o objeto `Bateria` associado realize o carregamento.
 
 ```java
@@ -152,8 +139,7 @@ public void carregarBateria(int quantidade) {
 
 A regra de negócio do carregamento permanece sob responsabilidade da classe `Bateria`, que verifica se a quantidade é maior que zero e se a porcentagem não ultrapassará 100%.
 
-**### getBateria()**
-
+### getBateria()
 O método `getBateria()` retorna a porcentagem da bateria por meio do objeto `Bateria` associado.
 
 ```java
@@ -162,8 +148,7 @@ public int getBateria() {
 }
 ```
 
-**### getPorcentagem()**
-
+### getPorcentagem()
 O método `getPorcentagem()` pertence à classe `Bateria` e retorna sua porcentagem atual.
 
 ```java
@@ -172,8 +157,7 @@ public int getPorcentagem() {
 }
 ```
 
-**### carregar()**
-
+### carregar()
 O método `carregar(int quantidade)` pertence à classe `Bateria` e é responsável por aumentar sua porcentagem.
 
 Regra de negócio:
@@ -189,8 +173,7 @@ public void carregar(int quantidade) {
 }
 ```
 
-**### isAirdrop()**
-
+### isAirdrop()
 O método `isAirdrop()` pertence à classe `Apple` e retorna se o recurso AirDrop está disponível.
 
 ```java
@@ -199,8 +182,7 @@ public boolean isAirdrop() {
 }
 ```
 
-**### setAirdrop()**
-
+### setAirdrop()
 O método `setAirdrop(boolean airdrop)` permite alterar o valor do atributo `airdrop`.
 
 ```java
@@ -209,8 +191,7 @@ public void setAirdrop(boolean airdrop) {
 }
 ```
 
-**### isBotoesInterativos()**
-
+### isBotoesInterativos()
 O método `isBotoesInterativos()` pertence à classe `Motorola` e retorna se os botões interativos estão disponíveis.
 
 ```java
@@ -219,8 +200,7 @@ public boolean isBotoesInterativos() {
 }
 ```
 
-**### setBotoesInterativos()**
-
+### setBotoesInterativos()
 O método `setBotoesInterativos(boolean botoesInterativos)` permite alterar o valor do atributo `botoesInterativos`.
 
 ```java
@@ -229,19 +209,14 @@ public void setBotoesInterativos(boolean botoesInterativos) {
 }
 ```
 
-**## Associação entre objetos**
-
-Na aula de ********17/09/26******, foi criada uma nova classe chamada `Bateria` para realizar uma associação com a classe `Celular`.
-
-O atributo `bateria` da classe `Celular` passou a armazenar um objeto da classe `Bateria`:
+## Associação entre objetos
+Na aula de **17/09/26**, foi criada uma nova classe chamada `Bateria` para realizar uma associação com a classe `Celular`. O atributo `bateria` da classe `Celular` passou a armazenar um objeto da classe `Bateria`:
 
 ```java
 private Bateria bateria;
 ```
 
-Essa associação permite que o `Celular` utilize os comportamentos da `Bateria`, enquanto a própria classe `Bateria` fica responsável por controlar sua porcentagem e suas regras de negócio.
-
-Com a evolução do projeto, as classes `Apple` e `Motorola` passaram a criar e receber suas próprias baterias por meio do construtor da classe `Celular`, utilizando `super()`.
+Essa associação permite que o `Celular` utilize os comportamentos da `Bateria`, enquanto a própria classe `Bateria` fica responsável por controlar sua porcentagem e suas regras de negócio. Com a evolução do projeto, as classes `Apple` e `Motorola` passaram a criar e receber suas próprias baterias por meio do construtor da classe `Celular`, utilizando `super()`.
 
 Por exemplo, na classe `Apple`:
 
@@ -251,11 +226,8 @@ super("iPhone 17 Pro Max", new Bateria(0));
 
 Dessa forma, cada objeto de `Apple` ou `Motorola` possui uma `Bateria` associada ao seu próprio objeto.
 
-**## Herança (Generalização)**
-
-Na aula de ********24/09/26******, foi aplicado o conceito de herança, também chamado de generalização.
-
-A classe `Celular` passou a atuar como uma superclasse, contendo características e comportamentos comuns aos diferentes tipos de celulares.
+## Herança (Generalização)
+Na aula de **24/09/26**, foi aplicado o conceito de herança, também chamado de generalização. A classe `Celular` passou a atuar como uma superclasse, contendo características e comportamentos comuns aos diferentes tipos de celulares.
 
 A classe `Apple` herda de `Celular`:
 
@@ -294,8 +266,7 @@ private boolean botoesInterativos;
 
 Dessa maneira, a herança permite reutilizar características e comportamentos comuns da classe `Celular`, enquanto cada classe filha pode possuir características específicas.
 
-**## Uso do super()**
-
+## Uso do super()
 Nas classes `Apple` e `Motorola`, o `super()` é utilizado para chamar o construtor da classe mãe (`Celular`).
 
 Na classe `Apple`:
@@ -320,7 +291,7 @@ O `super()` permite que a classe filha utilize o construtor da classe mãe para 
 
 Isso evita a necessidade de duplicar na classe filha a lógica de inicialização dos atributos pertencentes à classe mãe.
 
-**## Encapsulamento e herança**
+## Encapsulamento e herança
 
 Os atributos das classes são privados (`private`) para proteger o estado dos objetos.
 
@@ -330,7 +301,7 @@ Por exemplo, `Apple` e `Motorola` não alteram diretamente os atributos privados
 
 Assim, o conceito de encapsulamento continua sendo aplicado mesmo com a utilização da herança.
 
-**## Testes**
+## Testes
 
 Na aula de ********24/09/26******, o `Main.java` foi atualizado para testar os objetos das classes filhas `Apple` e `Motorola`.
 
@@ -412,10 +383,9 @@ O Java não permite que a classe filha altere diretamente os atributos private d
 
 Neste projeto, isso se encaixa nos atributos da classe `Celular`, como `modelo e bateria`, que ficam protegidos pelo encapsulamento. As classes `Apple` e `Motorola`, mesmo herdando de `Celular`, não alteram esses atributos diretamente, utilizando métodos como `setModelo()` ou o construtor com `super()`. Assim, mantemos os dados protegidos e organizados dentro da estrutura de herança do projeto.
 
-## **Evolução do projeto**
+## Evolução do projeto
 
-**### 20/08/26**
-
+### 20/08/26
 * Criação da classe `Celular`.
 * Definição inicial dos atributos `marca`, `modelo`, `bateria` e `volume`.
 * Utilização de atributos privados (`private`).
@@ -424,8 +394,7 @@ Neste projeto, isso se encaixa nos atributos da classe `Celular`, como `modelo e
 * Implementação das regras para impedir valores inválidos.
 * Criação do `Main.java` para testar o funcionamento do objeto.
 
-**### 10/09/26**
-
+### 10/09/26
 * Criação do construtor da classe `Celular`.
 * Definição de atributos essenciais para a criação do objeto.
 * Utilização de métodos `set` no construtor.
@@ -434,8 +403,7 @@ Neste projeto, isso se encaixa nos atributos da classe `Celular`, como `modelo e
 * Aplicação dos conceitos de encapsulamento e Clean Code.
 * Adição da reflexão sobre getters, setters e proteção contra falhas de lógica.
 
-**### 17/09/26**
-
+### 17/09/26
 * Criação da nova classe `Bateria`.
 * Criação do atributo `porcentagem` na classe `Bateria`.
 * Criação do construtor da classe `Bateria`.
@@ -448,8 +416,7 @@ Neste projeto, isso se encaixa nos atributos da classe `Celular`, como `modelo e
 * Criação de um teste no `Main.java` para imprimir um dado do objeto associado.
 * Adição da reflexão sobre associação entre objetos e responsabilidades das classes.
 
-**### 24/09/26**
-
+### 24/09/26
 * Aplicação do conceito de herança (generalização).
 * Utilização da classe `Celular` como superclasse.
 * Criação da classe `Apple` como classe filha de `Celular`.
