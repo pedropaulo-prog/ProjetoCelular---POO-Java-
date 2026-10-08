@@ -36,4 +36,8 @@ public class Celular {
     public int getBateria() {
         return bateria.getPorcentagem();
     }
+
+    public void tocarSom() {
+        System.out.println("Som do celular");
+    }
 }

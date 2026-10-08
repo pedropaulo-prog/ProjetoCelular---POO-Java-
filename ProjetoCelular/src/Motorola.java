@@ -2,9 +2,9 @@ public class Motorola extends Celular {
 
     private boolean botoesInterativos;
 
-    public Motorola() {
-        super("Moto G", new Bateria(0));
-        this.botoesInterativos = true;
+    public Motorola(String modelo, Bateria bateria, boolean botoesInterativos) {
+        super(modelo, bateria);
+        this.botoesInterativos = botoesInterativos;
     }
 
     public boolean isBotoesInterativos() {
@@ -13,5 +13,10 @@ public class Motorola extends Celular {
 
     public void setBotoesInterativos(boolean botoesInterativos) {
         this.botoesInterativos = botoesInterativos;
+    }
+
+    @Override
+    public void tocarSom() {
+        System.out.println("Som do Motorola");
     }
 }

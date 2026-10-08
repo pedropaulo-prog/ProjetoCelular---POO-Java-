@@ -2,9 +2,9 @@ public class Apple extends Celular {
 
     private boolean airdrop;
 
-    public Apple() {
-        super("iPhone 17 Pro Max", new Bateria(0));
-        this.airdrop = true;
+    public Apple(String modelo, Bateria bateria, boolean airdrop) {
+        super(modelo, bateria);
+        this.airdrop = airdrop;
     }
 
     public boolean isAirdrop() {
@@ -13,5 +13,10 @@ public class Apple extends Celular {
 
     public void setAirdrop(boolean airdrop) {
         this.airdrop = airdrop;
+    }
+
+    @Override
+    public void tocarSom() {
+        System.out.println("Som do iPhone");
     }
 }
