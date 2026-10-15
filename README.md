@@ -116,9 +116,9 @@ Na classe `Apple`, o método retorna `"Lightning"`, enquanto na classe `Motorola
 
 Assim, as subclasses compartilham a estrutura geral de `Celular`, mas fornecem suas próprias implementações para o tipo de conector e para o método `tocarSom()`.
 
-**## Perguntas de Reflexão**
+## Perguntas de Reflexão
 
-**### Aulas 2 - "Métodos e Comportamentos" - 20/08/26**
+### Aulas 2 - "Métodos e Comportamentos" - 20/08/26
 
 **\*Reflita: Se nós podemos simplesmente fazer passageiro.saldo = passageiro.saldo + 100 diretamente no código principal, por que dá tanto trabalho criar um método específico chamado adicionarSaldo(valor) para fazer isso? Quais seriam os riscos para a nossa startup de mobilidade se deixássemos qualquer programador alterar o saldo diretamente?*\**
 
@@ -126,7 +126,7 @@ Se alterássemos o saldo diretamente no código principal, qualquer programador 
 
 No Projeto Celular, aplicamos esse mesmo princípio ao encapsulamento. Os atributos são privados (`private`), impedindo o acesso direto a eles fora da própria classe. Além disso, métodos como `carregar()` verificam se a quantidade informada é positiva e se a bateria não ultrapassará 100%. Dessa forma, protegemos os dados dos objetos e garantimos que suas alterações respeitem as regras definidas no código.
 
-"**### Aula 3 - "Protegendo o Sistema - Encapsulamento (Getters e Setters)" - 27/08/26**
+### Aula 3 - "Protegendo o Sistema - Encapsulamento (Getters e Setters)" - 27/08/26
 
 **\*No nosso código, os atributos são private, mas os métodos getSaldo() e getNome() são public. Por que é seguro deixar o get público, mas perigoso deixar o atributo original público?*\**
 **\*Pense bem: Qual a diferença entre dar a alguém uma CÓPIA de um documento seu, e entregar o documento ORIGINAL para a pessoa rasurar?*\**
@@ -135,7 +135,7 @@ Os métodos `get` são públicos porque permitem consultar as informações de u
 
 No nosso Projeto Celular, utilizamos atributos privados (`private`) e métodos públicos, como `getModelo()` e `getVolume()`, para permitir a consulta dessas informações com segurança. Além disso, a bateria possui o método `getPorcentagem()`, enquanto sua alteração é feita pelo método `carregar()`, que verifica se a quantidade informada é válida e impede que a carga ultrapasse 100%. Assim, protegemos os dados dos objetos e mantemos o controle sobre as alterações.
 
-**### Aula 4 - "Construtores" - 10/09/26**
+### Aula 4 - "Construtores" - 10/09/26
 
 **\*Pensando no mundo real e no Clean Code: Por que é um erro gravíssimo clicar em "Gerar Getters e Setters para tudo" automaticamente na sua IDE? Como as nossas duas decisões acima protegem o sistema de fraudes e falhas de lógica?*\**
 
@@ -155,7 +155,7 @@ public void carregar(int quantidade) {
 
 Aqui podemos observar que o usuário não pode simplesmente definir qualquer valor para a bateria. Ele informa uma quantidade que deseja adicionar, e o sistema verifica se ela é maior que zero e se a bateria, após o carregamento, não ultrapassará 100%.
 
-**### Aula 5 - "Associação entre objetos" - 17/09/26**
+### Aula 5 - "Associação entre objetos" - 17/09/26
 
 ***\*"No construtor da Viagem, nós exigimos o objeto inteiro (Passageiro solicitante). Se o nosso resumo só precisa imprimir o nome da pessoa, não seria mais fácil e mais leve pedir apenas a String do nome no construtor da Viagem (String nomeDoPassageiro) em vez do objeto todo?"*\***
 
@@ -165,7 +165,7 @@ Em resumo, não podemos apenar pedir a `String` do nome no construtor, pois uma 
 
 Sendo assim, neste projeto, o `Celular` passou a ter uma relação com o objeto `Bateria` e ao invés de apenas armazenar um número, a `Bateria` agora é responsável por controlar sua porcentagem e regra de comportamento. Contudo, utilizar o objeto associado permite que cada classe mantenha suas próprias responsabilidades e regras de negócio, deixando o código mais organizado.
 
-**### Aula 6 - "A Árvore Genealógica - Herança (Generalização)" - 24/09/26**
+### Aula 6 - "A Árvore Genealógica - Herança (Generalização)" - 24/09/26
 
 ***\*"No nosso código, a mãe `Veiculo` possui os atributos `placa` e `modelo` como `private`. Quando o `Carro` herda de `Veiculo`, ele recebe esses atributos, mas o código dentro de Carro NÃO consegue fazer `this.placa = "ABC"`. Ele é obrigado a usar o `super()` ou o `setPlaca()`.*\***
 
@@ -175,7 +175,7 @@ O Java não permite que a classe filha altere diretamente os atributos private d
 
 Neste projeto, isso se encaixa nos atributos da classe `Celular`, como `modelo` e `bateria`, que ficam protegidos pelo encapsulamento. As classes `Apple` e `Motorola`, mesmo herdando de `Celular`, não alteram esses atributos diretamente, utilizando métodos como `setModelo()` ou o construtor com `super()`. Assim, mantemos os dados protegidos e organizados dentro da estrutura de herança do projeto.
 
-**### Aula 7 - "Muitas Formas: Polimorfismo de Sobrescrita" - 08/10/26**
+### Aula 7 - "Muitas Formas: Polimorfismo de Sobrescrita" - 08/10/26
 
 ***\*"No nosso loop `for (Veiculo veiculo : frota)`, a variável `veiculo` é do tipo genérico `Veiculo`. Se esquecêssemos de criar o método `calcularAutonomia()` lá na classe mãe `Veiculo`, nós conseguiríamos chamá-lo dentro do loop, mesmo sabendo que ele existe dentro do `Carro` e da `Moto`? Por que o contrato precisa existir na base da hierarquia?"*\***
 
@@ -183,7 +183,7 @@ A variável `veiculo` é do tipo `Veiculo`, então ela só consegue acessar os m
 
 Nesse projeto, isso acontece de forma semelhante com o método `tocarSom()`. O método foi criado na classe `Celular`, que é a classe mãe, e depois foi sobrescrito nas classes `Apple` e `Motorola`. Por isso, na nossa lista `List<Celular>`, podemos percorrer os objetos usando uma variável do tipo `Celular` e chamar `celular.tocarSom()`. Mesmo sendo do tipo `Celular`, cada objeto executa a sua própria versão do método: o `Apple` executa "Som do iPhone" e o `Motorola` executa "Som do Motorola".
 
-**### Aula 8 - "O Molde Invisível - Classes Abstratas" - 15/10/26**
+### Aula 8 - "O Molde Invisível - Classes Abstratas" - 15/10/26
 
 **\*"Pense no mundo real: Faz sentido existir um objeto que é APENAS 'Veículo' sem ser um tipo específico? Você já entrou em uma concessionária e comprou "um veículo" genérico, sem ser carro, moto, caminhão ou nada disso?*\**
 
