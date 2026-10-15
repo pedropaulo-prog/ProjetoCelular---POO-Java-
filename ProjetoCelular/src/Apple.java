@@ -1,3 +1,4 @@
+
 public class Apple extends Celular {
 
     private boolean airdrop;
@@ -18,5 +19,10 @@ public class Apple extends Celular {
     @Override
     public void tocarSom() {
         System.out.println("Som do iPhone");
+    }
+
+    @Override
+    public String tipoDeConector() {
+        return "Lightning";
     }
 }

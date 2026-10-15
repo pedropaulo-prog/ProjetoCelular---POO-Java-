@@ -1,3 +1,4 @@
+
 public class Motorola extends Celular {
 
     private boolean botoesInterativos;
@@ -18,5 +19,10 @@ public class Motorola extends Celular {
     @Override
     public void tocarSom() {
         System.out.println("Som do Motorola");
+    }
+
+    @Override
+    public String tipoDeConector() {
+        return "USB-C";
     }
 }

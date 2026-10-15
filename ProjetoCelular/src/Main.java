@@ -1,3 +1,4 @@
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,6 +11,7 @@ public class Main {
         System.out.println("APPLE");
         System.out.println("Modelo: " + apple.getModelo());
         System.out.println("Airdrop: " + apple.isAirdrop());
+        System.out.println("Conector: " + apple.tipoDeConector());
 
         apple.aumentarVolume(20);
         System.out.println("Volume: " + apple.getVolume());
@@ -24,6 +26,7 @@ public class Main {
         System.out.println("\nMOTOROLA");
         System.out.println("Modelo: " + motorola.getModelo());
         System.out.println("Botoes interativos: " + motorola.isBotoesInterativos());
+        System.out.println("Conector: " + motorola.tipoDeConector());
 
         motorola.aumentarVolume(30);
         System.out.println("Volume: " + motorola.getVolume());
@@ -42,8 +45,10 @@ public class Main {
 
         for (Celular celular : celulares) {
             System.out.println("Modelo: " + celular.getModelo());
+            System.out.println("Conector: " + celular.tipoDeConector());
             celular.tocarSom();
             System.out.println("-------------------------");
         }
     }
 }
+

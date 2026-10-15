@@ -1,4 +1,5 @@
-public class Celular {
+
+public abstract class Celular {
 
     private String modelo;
     private Bateria bateria;
@@ -40,4 +41,6 @@ public class Celular {
     public void tocarSom() {
         System.out.println("Som do celular");
     }
+
+    public abstract String tipoDeConector();
 }
