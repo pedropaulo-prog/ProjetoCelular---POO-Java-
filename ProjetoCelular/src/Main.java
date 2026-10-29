@@ -35,6 +35,8 @@ public class Main {
 
         motorola.tocarSom();
 
+        Tesla tesla = new Tesla();
+
         List<Celular> celulares = new ArrayList<>();
 
         celulares.add(apple);
@@ -53,7 +55,8 @@ public class Main {
 
         Recarregavel[] recarregaveis = {
                 apple,
-                motorola
+                motorola,
+                tesla
         };
 
         for (Recarregavel recarregavel : recarregaveis) {
@@ -63,8 +66,11 @@ public class Main {
         System.out.println("\nBATERIAS APOS O RECARREGAMENTO");
         System.out.println("Apple: " + apple.getBateria() + "%");
         System.out.println("Motorola: " + motorola.getBateria() + "%");
+        System.out.println("Tesla: " + tesla.getBateria().getPorcentagem() + "%");
 
         System.out.println("\nTESTE DE VALOR INVALIDO");
         apple.recarregar(120);
     }
+
+    
 }

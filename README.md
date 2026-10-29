@@ -1,4 +1,4 @@
-# Projeto FiapRide - [Pedro Paulo Ferreira Agnelo D'angelo]
+# Projeto Celular - [Pedro Paulo Ferreira Agnelo D'angelo]
 
 ## Informações do Aluno
 - **Nome:** [Pedro Paulo Ferreira Agnelo D'angelo]
@@ -132,7 +132,9 @@ O domínio escolhido foi de dispositivos móveis, especificamente celulares, ond
 - **Recarregavel:** interface que define o contrato de recarga dos celulares.
 
 **Qual foi o maior desafio técnico que você enfrentou?**
-[Descreva o desafio e como você o resolveu - 10-15 linhas]
+O maior desafio técnico que enfrentei foi conectar o meu projeto com o do Gabriel, pois nossos objetos eram diferentes e precisei entender como fazer os dois funcionarem juntos. No começo, fiquei com dúvidas sobre quais arquivos precisava alterar para que a integração funcionasse corretamente e a parte mais importante foi entender como utilizar a interface `Recarregavel` para que tanto os celulares quanto o carro elétrico do Gabriel pudessem ser recarregados pelo mesmo código. Além disso, ele precisou criar a classe `Tesla` para que pudéssemos utilizar a mesma interface nos dois projetos. 
+
+Durante esse processo, encontrei alguns erros que me fizeram revisar as classes e verificar o que estava faltando e um dos problemas aconteceu porque eu não tinha feito as alterações necessárias no arquivo `Carro.java` para que `Tesla.java` funcionasse corretamente. Depois de corrigir isso, consegui executar o programa e ver os três objetos sendo recarregados para 85%, além de ajustar a mensagem exibida pelo Tesla para deixar o resultado mais claro. Essa experiência me ajudou a entender melhor como as interfaces permitem trabalhar com objetos de classes diferentes e, no final, percebi que é importante saber analisar os erros e compreender como cada parte do projeto se conecta, não somente escrever o código.
 ---
 ## Conclusão
 **O que você aprendeu nestas 9 aulas?**
@@ -241,9 +243,11 @@ Se pudesse refazer o projeto, melhoraria a validação dos dados para garantir q
 * Aplicação de validação para impedir percentuais de recarga inválidos.
 * Utilização das constantes da interface para validar os valores informados.
 * Atualização do `Main.java` para testar a recarga dos celulares por meio da interface.
-* Criação de um array do tipo `Recarregavel` contendo os objetos `Apple` e `Motorola`.
+* Criação de um array do tipo `Recarregavel` contendo os objetos `Apple`, `Motorola` e `Tesla`.
+* Integração do projeto com o código do Gabriel para permitir que celulares e um carro elétrico utilizem a mesma interface.
 * Utilização de um `for` para percorrer os objetos e executar o método `recarregar()`.
-* Teste da recarga dos celulares para 85%.
+* Teste da recarga dos três objetos para 85%.
+* Atualização da classe `Tesla` para exibir uma mensagem após a recarga.
 * Teste de valor inválido utilizando o percentual de 120%.
 * Aplicação dos conceitos de interfaces, contratos de comportamento e polimorfismo.
 * Adição da reflexão sobre a implementação de interfaces e suas diferenças em relação à herança.

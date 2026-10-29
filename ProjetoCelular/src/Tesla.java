@@ -1,3 +1,4 @@
+
 public class Tesla extends Carro implements Recarregavel {
 
     private Bateria bateria;
@@ -11,16 +12,25 @@ public class Tesla extends Carro implements Recarregavel {
         return bateria;
     }
 
+    @Override
     public String exibirTipo() {
         return "Carro elétrico";
     }
 
+    @Override
     public String buzinar() {
         return "Tesla: buzina elétrica!";
     }
 
     @Override
-    public void recarregar(int quantidade) {
-        bateria.carregar(quantidade);
+    public void recarregar(int percentual) {
+        if (percentual < Recarregavel.CARGA_MINIMA ||
+                percentual > Recarregavel.CARGA_MAXIMA) {
+            System.out.println("Erro: Percentual inválido!");
+            return;
+        }
+
+        bateria.setPorcentagem(percentual);
+        System.out.println("Tesla recarregado para " + percentual + "%");
     }
 }
