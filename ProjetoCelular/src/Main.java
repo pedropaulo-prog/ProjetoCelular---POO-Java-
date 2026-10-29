@@ -1,4 +1,3 @@
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -49,6 +48,23 @@ public class Main {
             celular.tocarSom();
             System.out.println("-------------------------");
         }
+
+        System.out.println("\nTESTE DA INTERFACE RECARREGAVEL");
+
+        Recarregavel[] recarregaveis = {
+                apple,
+                motorola
+        };
+
+        for (Recarregavel recarregavel : recarregaveis) {
+            recarregavel.recarregar(85);
+        }
+
+        System.out.println("\nBATERIAS APOS O RECARREGAMENTO");
+        System.out.println("Apple: " + apple.getBateria() + "%");
+        System.out.println("Motorola: " + motorola.getBateria() + "%");
+
+        System.out.println("\nTESTE DE VALOR INVALIDO");
+        apple.recarregar(120);
     }
 }
-

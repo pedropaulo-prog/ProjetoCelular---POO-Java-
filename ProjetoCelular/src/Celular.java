@@ -1,5 +1,4 @@
-
-public abstract class Celular {
+public abstract class Celular implements Recarregavel {
 
     private String modelo;
     private Bateria bateria;
@@ -28,6 +27,22 @@ public abstract class Celular {
 
     public void carregarBateria(int quantidade) {
         bateria.carregar(quantidade);
+    }
+
+    @Override
+    public void recarregar(int percentual) {
+
+        if (percentual < Recarregavel.CARGA_MINIMA ||
+                percentual > Recarregavel.CARGA_MAXIMA) {
+
+            System.out.println("Erro: Percentual inválido!");
+            return;
+        }
+
+        bateria.setPorcentagem(percentual);
+
+        System.out.println("Celular " + modelo +
+                " recarregado para " + percentual + "%");
     }
 
     public int getVolume() {

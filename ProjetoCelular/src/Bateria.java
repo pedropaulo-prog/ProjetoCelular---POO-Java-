@@ -15,4 +15,10 @@ public class Bateria {
             porcentagem = porcentagem + quantidade;
         }
     }
+
+    public void setPorcentagem(int porcentagem) {
+        if (porcentagem >= 0 && porcentagem <= 100) {
+            this.porcentagem = porcentagem;
+        }
+    }
 }
