@@ -24,28 +24,27 @@ Este projeto é o resultado do aprendizado nas aulas 1-9 de Programação Orient
 ---
 ## Perguntas de Reflexão
 ### Aula 1 - Classes e Objetos
-**Pergunta:** "**Pergunta:** Por que precisamos criar uma classe `Passageiro`? Não seria mais fácil apenas criar variáveis soltas no main, como `String nomeAna = "Ana"` e `double saldoAna = 50.0`?
+**Pergunta:** Por que precisamos criar uma classe `Passageiro`? Não seria mais fácil apenas criar variáveis soltas no main, como `String nomeAna = "Ana"` e `double saldoAna = 50.0`?
 **Pense:** E se o FiapRide tiver 1 milhão de usuários? Como a Classe ajuda a resolver isso?"
 
 **Sua Resposta:**
+
 Criar uma classe permite organizar os dados e comportamentos de algo em uma única estrutura e, no nosso projeto, a classe Celular representa as características e ações que um celular possui, como modelo, volume e bateria. Se utilizássemos apenas variáveis soltas, o código ficaria desorganizado e difícil de manter, principalmente com muitos objetos. Com as classes, podemos criar vários celulares a partir de uma estrutura comum, mantendo cada objeto com seus próprios dados. Isso facilita a reutilização do código e a organização do sistema.
 ---
 ### Aula 2 - Métodos
 **Pergunta:** "Se nós podemos simplesmente fazer `passageiro.saldo = passageiro.saldo \+ 100` diretamente no código principal, por que dá tanto trabalho criar um método específico chamado `adicionarSaldo\(valor\)` para fazer isso? Quais seriam os riscos para a nossa startup de mobilidade se deixássemos qualquer programador alterar o saldo diretamente?"
 
 **Sua Resposta:**
-Se alterássemos o saldo diretamente no código principal, qualquer programador poderia modificar seu valor sem respeitar regras de negócio. Por exemplo, seria possível adicionar dinheiro indevidamente ou realizar alterações que não deveriam ser permitidas. Ao criar um método específico, como `adicionarSaldo(valor)`, podemos centralizar as regras de alteração e controlar melhor o que acontece com o saldo, evitando fraudes e falhas de lógica.
 
-No Projeto Celular, aplicamos esse mesmo princípio ao encapsulamento. Os atributos são privados (`private`), impedindo o acesso direto a eles fora da própria classe. Além disso, métodos como `carregar()` verificam se a quantidade informada é positiva e se a bateria não ultrapassará 100%. Dessa forma, protegemos os dados dos objetos e garantimos que suas alterações respeitem as regras definidas no código.
+Se alterássemos o saldo diretamente no código principal, qualquer programador poderia modificar seu valor sem respeitar regras de negócio. Por exemplo, seria possível adicionar dinheiro indevidamente ou realizar alterações que não deveriam ser permitidas. Ao criar um método específico, como `adicionarSaldo(valor)`, podemos centralizar as regras de alteração e controlar melhor o que acontece com o saldo, evitando fraudes e falhas de lógica. No Projeto Celular, aplicamos esse mesmo princípio ao encapsulamento. Os atributos são privados (`private`), impedindo o acesso direto a eles fora da própria classe. Além disso, métodos como `carregar()` verificam se a quantidade informada é positiva e se a bateria não ultrapassará 100%. Dessa forma, protegemos os dados dos objetos e garantimos que suas alterações respeitem as regras definidas no código.
 ---
 ### Aula 3 - Encapsulamento
 **Pergunta:** "No nosso código, os atributos são `private`, mas os métodos `getSaldo\(\)` e `get Nome\(\)` são `public`. Por que é seguro deixar o `get` público, mas perigoso deixar o atributo original público?
 Pense bem: Qual a diferença entre dar a alguém uma CÓPIA de um documento seu, e entregar o documento ORIGINAL para a pessoa rasurar?"
 
 **Sua Resposta:**
-Os métodos `get` são públicos porque permitem consultar as informações de um objeto sem dar acesso direto ao atributo original. É como entregar uma cópia de um documento: a pessoa pode ler as informações, mas não consegue alterar o documento original por meio dessa cópia. Se os atributos fossem públicos, qualquer parte do código poderia modificá-los diretamente, sem respeitar as regras definidas pela classe.
 
-No nosso Projeto Celular, utilizamos atributos privados (`private`) e métodos públicos, como `getModelo()` e `getVolume()`, para permitir a consulta dessas informações com segurança. Além disso, a bateria possui o método `getPorcentagem()`, enquanto sua alteração é feita pelo método `carregar()`, que verifica se a quantidade informada é válida e impede que a carga ultrapasse 100%. Assim, protegemos os dados dos objetos e mantemos o controle sobre as alterações.
+Os métodos `get` são públicos porque permitem consultar as informações de um objeto sem dar acesso direto ao atributo original. É como entregar uma cópia de um documento: a pessoa pode ler as informações, mas não consegue alterar o documento original por meio dessa cópia. Se os atributos fossem públicos, qualquer parte do código poderia modificá-los diretamente, sem respeitar as regras definidas pela classe. No nosso Projeto Celular, utilizamos atributos privados (`private`) e métodos públicos, como `getModelo()` e `getVolume()`, para permitir a consulta dessas informações com segurança. Além disso, a bateria possui o método `getPorcentagem()`, enquanto sua alteração é feita pelo método `carregar()`, que verifica se a quantidade informada é válida e impede que a carga ultrapasse 100%. Assim, protegemos os dados dos objetos e mantemos o controle sobre as alterações.
 
 ---
 ### Aula 4 - Construtores
@@ -56,9 +55,8 @@ No nosso Projeto Celular, utilizamos atributos privados (`private`) e métodos p
 Dica: Pense sobre o que pode ou não mudar fisicamente em um carro, e a diferença entre "alterar um dado no banco" e "executar um processo real no Detran"
 
 **Sua Resposta:**
-Pensando em um mundo real, apenas gerar "Getter" e "Setter" no código do sistema pode acarretar em um sério problema de informações não reais. Ou seja, nem toda informação do objeto deve ser alterada livremente. Se tivéssemos um setter público para a bateria, mesmo que o atributo fosse privado, uma pessoa poderia simplesmente adicionar 150% de bateria ao objeto, invalidando a lógica do sistema.
 
-Por isso, é muito importante nos atentarmos para que, quando criarmos um atributo privado, não criemos automaticamente um setter público. Quando for necessário alterar um atributo, devemos criar métodos e condições que representem ações reais do objeto que possam ser validadas pelo sistema. Assim, protegemos o sistema contra fraudes e falhas de lógica.
+Pensando em um mundo real, apenas gerar "Getter" e "Setter" no código do sistema pode acarretar em um sério problema de informações não reais. Ou seja, nem toda informação do objeto deve ser alterada livremente. Se tivéssemos um setter público para a bateria, mesmo que o atributo fosse privado, uma pessoa poderia simplesmente adicionar 150% de bateria ao objeto, invalidando a lógica do sistema. Por isso, é muito importante nos atentarmos para que, quando criarmos um atributo privado, não criemos automaticamente um setter público. Quando for necessário alterar um atributo, devemos criar métodos e condições que representem ações reais do objeto que possam ser validadas pelo sistema. Assim, protegemos o sistema contra fraudes e falhas de lógica.
 
 Por exemplo:
 
@@ -69,7 +67,6 @@ public void carregar(int quantidade) {
     }
 }
 ```
-
 Aqui podemos observar que o usuário não pode simplesmente definir qualquer valor para a bateria. Ele informa uma quantidade que deseja adicionar, e o sistema verifica se ela é maior que zero e se a bateria, após o carregamento, não ultrapassará 100%.
 ---
 ### Aula 5 - Associação
@@ -78,9 +75,8 @@ Aqui podemos observar que o usuário não pode simplesmente definir qualquer val
 Pense nas regras de negócio: O que acontece na hora que a Viagem acaba e o sistema precisa descontar o saldo? Se a Viagem tiver apenas a String "Ana Silva", ela consegue mexer no dinheiro dela?"
 
 **Sua Resposta:**
-Em resumo, não podemos apenar pedir a `String` do nome no construtor, pois uma `String` guarda apenas o dado e um objeto nos permite acessar os dados + comportamentos e atributos da pessoa. Por exemplo, se uma `Viagem` recebesse apenas a `String` `"Ana Silva"`, ela receberia o nome do passageiro, mas não teria acesso aos atributos do objeto `Passageiro` para realizar outras ações, como descontar diretamente do saldo da pessoa.
 
-Sendo assim, neste projeto, o `Celular` passou a ter uma relação com o objeto `Bateria` e ao invés de apenas armazenar um número, a `Bateria` agora é responsável por controlar sua porcentagem e regra de comportamento. Contudo, utilizar o objeto associado permite que cada classe mantenha suas próprias responsabilidades e regras de negócio, deixando o código mais organizado.
+Em resumo, não podemos apenar pedir a `String` do nome no construtor, pois uma `String` guarda apenas o dado e um objeto nos permite acessar os dados + comportamentos e atributos da pessoa. Por exemplo, se uma `Viagem` recebesse apenas a `String` `"Ana Silva"`, ela receberia o nome do passageiro, mas não teria acesso aos atributos do objeto `Passageiro` para realizar outras ações, como descontar diretamente do saldo da pessoa. Sendo assim, neste projeto, o `Celular` passou a ter uma relação com o objeto `Bateria` e ao invés de apenas armazenar um número, a `Bateria` agora é responsável por controlar sua porcentagem e regra de comportamento. Contudo, utilizar o objeto associado permite que cada classe mantenha suas próprias responsabilidades e regras de negócio, deixando o código mais organizado.
 ---
 ### Aula 6 - Herança
 **Pergunta:** ""No nosso código, a mãe `Veiculo` possui os atributos `placa` e `modelo` como `private`. Quando o `Carro` herda de `Veiculo`, ele recebe esses atributos, mas o código dentro de `Carro` NÃO consegue fazer `this.placa = "ABC"`. Ele é obrigado a usar o `super\(\)` ou o `setPlaca\(\)`.
@@ -88,17 +84,15 @@ Sendo assim, neste projeto, o `Celular` passou a ter uma relação com o objeto 
 Por que o Java não deixa a filha alterar as variáveis privadas da mãe diretamente? Qual o princípio das aulas passadas que isso está protegendo?""
 
 **Sua Resposta:**
-O Java não permite que a classe filha altere diretamente os atributos private da classe mãe, porque esses atributos estão encapsulados e só podem ser acessados diretamente dentro da própria classe onde foram declarados. Assim, isso protege os dados de alterações indevidas e permite que a classe mãe controle como seus atributos serão modificados. Por isso, a classe filha precisa utilizar métodos como `setPlaca()` ou o construtor com `super()`, protegendo o encapsulamento, que mantém os atributos protegidos e controla o acesso a eles (princípio das aulas anteriores).
 
-Neste projeto, isso se encaixa nos atributos da classe `Celular`, como `modelo` e `bateria`, que ficam protegidos pelo encapsulamento. As classes `Apple` e `Motorola`, mesmo herdando de `Celular`, não alteram esses atributos diretamente, utilizando métodos como `setModelo()` ou o construtor com `super()`. Assim, mantemos os dados protegidos e organizados dentro da estrutura de herança do projeto.
+O Java não permite que a classe filha altere diretamente os atributos private da classe mãe, porque esses atributos estão encapsulados e só podem ser acessados diretamente dentro da própria classe onde foram declarados. Assim, isso protege os dados de alterações indevidas e permite que a classe mãe controle como seus atributos serão modificados. Por isso, a classe filha precisa utilizar métodos como `setPlaca()` ou o construtor com `super()`, protegendo o encapsulamento, que mantém os atributos protegidos e controla o acesso a eles (princípio das aulas anteriores). Neste projeto, isso se encaixa nos atributos da classe `Celular`, como `modelo` e `bateria`, que ficam protegidos pelo encapsulamento. As classes `Apple` e `Motorola`, mesmo herdando de `Celular`, não alteram esses atributos diretamente, utilizando métodos como `setModelo()` ou o construtor com `super()`. Assim, mantemos os dados protegidos e organizados dentro da estrutura de herança do projeto.
 ---
 ### Aula 7 - Polimorfismo
 **Pergunta:** "No nosso loop `for \(Veiculo veiculo : frota\)`, a variável `veiculo` é do tipo genérico `Veiculo`. Se esquecêssemos de criar o método `calcularAutonomia\(\)` lá na classe mãe `Veiculo`, nós conseguiríamos chamá-lo dentro do loop, mesmo sabendo que ele existe dentro do `Carro` e da `Moto`? Por que o contrato precisa existir na base da hierarquia?"
 
 **Sua Resposta:**
-A variável `veiculo` é do tipo `Veiculo`, então ela só consegue acessar os métodos que existem na classe `Veiculo`. Mesmo que `Carro` e `Moto` possuam o método `calcularAutonomia()`, não seria possível chamá-lo pelo `veiculo` se esse método não existisse na classe mãe. O contrato precisa existir na classe base porque ele garante que todas as classes filhas terão esse comportamento. Assim, o loop pode trabalhar com qualquer objeto do tipo `Veiculo` e o polimorfismo permite que cada classe filha execute sua própria implementação do método.
 
-Nesse projeto, isso acontece de forma semelhante com o método `tocarSom()`. O método foi criado na classe `Celular`, que é a classe mãe, e depois foi sobrescrito nas classes `Apple` e `Motorola`. Por isso, na nossa lista `List<Celular>`, podemos percorrer os objetos usando uma variável do tipo `Celular` e chamar `celular.tocarSom()`. Mesmo sendo do tipo `Celular`, cada objeto executa a sua própria versão do método: o `Apple` executa "Som do iPhone" e o `Motorola` executa "Som do Motorola".
+A variável `veiculo` é do tipo `Veiculo`, então ela só consegue acessar os métodos que existem na classe `Veiculo`. Mesmo que `Carro` e `Moto` possuam o método `calcularAutonomia()`, não seria possível chamá-lo pelo `veiculo` se esse método não existisse na classe mãe. O contrato precisa existir na classe base porque ele garante que todas as classes filhas terão esse comportamento. Assim, o loop pode trabalhar com qualquer objeto do tipo `Veiculo` e o polimorfismo permite que cada classe filha execute sua própria implementação do método. Nesse projeto, isso acontece de forma semelhante com o método `tocarSom()`. O método foi criado na classe `Celular`, que é a classe mãe, e depois foi sobrescrito nas classes `Apple` e `Motorola`. Por isso, na nossa lista `List<Celular>`, podemos percorrer os objetos usando uma variável do tipo `Celular` e chamar `celular.tocarSom()`. Mesmo sendo do tipo `Celular`, cada objeto executa a sua própria versão do método: o `Apple` executa "Som do iPhone" e o `Motorola` executa "Som do Motorola".
 ---
 ### Aula 8 - Classes Abstratas
 **Pergunta:** "Pense no mundo real: Faz sentido existir um objeto que é APENAS 'Veículo' sem ser um tipo específico? Você já entrou em uma concessionária e comprou "um veículo" genérico, sem ser carro, moto, caminhão ou nada disso? Por que, então, no código, precisamos EXPLICITAMENTE dizer ao Java que `Veiculo` é `abstract`? Por que ele não deduz isso sozinho?
@@ -107,15 +101,15 @@ Pense: Se esquecermos de colocar `abstract`, qual o risco que corremos? Alguém 
 eiculo\(\)` e quebrar a lógica do nosso sistema?"
 
 **Sua Resposta:**
-No mundo real, não faz muito sentido comprar apenas um "veículo" genérico, pois normalmente compramos um tipo específico, como um carro ou uma moto. No nosso projeto, acontece algo semelhante: não criamos um celular genérico, mas sim objetos específicos das classes `Apple` e `Motorola`. Por isso, precisamos declarar `Celular` como `abstract`, indicando ao Java que essa classe serve como um modelo para as classes filhas, e não para criar objetos diretamente. O Java não deduz isso sozinho porque precisamos informar explicitamente essa intenção no código.
 
-Se esquecermos de colocar `abstract`, alguém poderá criar um objeto diretamente com `new Celular()`, mesmo que a intenção do projeto seja trabalhar apenas com tipos específicos de celulares. Isso permitiria criar um objeto genérico e poderia comprometer a lógica que queremos estabelecer. Ao tornar a classe abstrata, impedimos essa criação direta e garantimos que os objetos sejam instanciados por meio de classes concretas, como `Apple` e `Motorola`.
+No mundo real, não faz muito sentido comprar apenas um "veículo" genérico, pois normalmente compramos um tipo específico, como um carro ou uma moto. No nosso projeto, acontece algo semelhante: não criamos um celular genérico, mas sim objetos específicos das classes `Apple` e `Motorola`. Por isso, precisamos declarar `Celular` como `abstract`, indicando ao Java que essa classe serve como um modelo para as classes filhas, e não para criar objetos diretamente. O Java não deduz isso sozinho porque precisamos informar explicitamente essa intenção no código. Se esquecermos de colocar `abstract`, alguém poderá criar um objeto diretamente com `new Celular()`, mesmo que a intenção do projeto seja trabalhar apenas com tipos específicos de celulares. Isso permitiria criar um objeto genérico e poderia comprometer a lógica que queremos estabelecer. Ao tornar a classe abstrata, impedimos essa criação direta e garantimos que os objetos sejam instanciados por meio de classes concretas, como `Apple` e `Motorola`.
 ---
 ### Aula 9 - Interfaces
 **Pergunta:** "Por que Java permite herança simples \(apenas uma mãe\), mas múltipla implementação de interfaces \(vários contratos\)?
 Pense: Se `CarroEletrico` pudesse herdar de `Veiculo` e de `Bateria` ao mesmo tempo \(herança múltipla\), o que aconteceria se AMBAS as mães tivessem um método chamado `ligar\(\)`? Como as interfaces resolvem esse problema?"
 
 **Sua Resposta:**
+
 O Java permite que uma classe herde diretamente de apenas uma classe, evitando ambiguidades que poderiam surgir quando duas classes mães definissem implementações conflitantes para os mesmos métodos. As interfaces permitem estabelecer contratos de comportamento que uma classe pode implementar, sem exigir que ela herde de várias classes. No nosso projeto, criamos a interface Recarregavel, que define o método recarregar(int percentual) e as constantes CARGA_MAXIMA e CARGA_MINIMA. A classe Celular implementa essa interface, permitindo que os celulares utilizem o comportamento de recarga por meio de um contrato comum.
 ---
 ## Desafios Técnicos Implementados
