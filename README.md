@@ -1,144 +1,61 @@
-# Projeto Celular - POO
+# Projeto FiapRide - [Pedro Paulo Ferreira Agnelo D'angelo]
 
-Atividade realizada em classe no dia **20/08/26** na aula de Programação Orientada a Objetos, a qual será dada continuidade a cada aula até o fim do semestre. Portanto, esse Readme.md irá ser atualizado conforme a evolução do projeto, podendo haver alterações no seu contéudo, bem como remoção de antigas informações que não fazem mais sentido e adição de novas.
+## Informações do Aluno
+- **Nome:** [Pedro Paulo Ferreira Agnelo D'angelo]
+- **RM:** [567564]
+- **Turma:** [2 CCPB]
+- **Curso:** [Ciências da Computação]
+- **GitHub:** [@pedropaulo-prog]
+---
+## Descrição do Projeto
+Este projeto é o resultado do aprendizado nas aulas 1-9 de Programação Orientada a Objetos, nas quais desenvolvemos um sistema de celulares utilizando os principais conceitos da linguagem Java. O projeto possui classes para representar celulares Apple e Motorola, uma classe responsável pela bateria e uma interface que define o comportamento de recarga. Durante o desenvolvimento, foram aplicados conceitos como classes e objetos, métodos, encapsulamento, construtores, associação, herança, polimorfismo, classes abstratas e interfaces, onde o objetivo foi compreender como organizar o código, reutilizar funcionalidades e estabelecer regras para o funcionamento dos objetos.
 
-## Sobre o projeto
-
-O Projeto Celular foi desenvolvido durante as aulas de Programação Orientada a Objetos (POO), com o objetivo de aplicar conceitos como classes, objetos, atributos, métodos, encapsulamento, associação, herança, polimorfismo e classes abstratas. 
-
-O projeto possui as classes `Celular`, `Apple`, `Motorola` e `Bateria`. A classe `Celular` representa a estrutura geral dos aparelhos, enquanto `Apple` e `Motorola` representam tipos específicos de celulares. A classe `Bateria` é associada aos celulares para controlar a porcentagem de carga.
-
-## Classes e atributos
-
-- **Celular:** classe abstrata que reúne os atributos e comportamentos comuns aos celulares.
-- **Apple:** classe que herda de `Celular` e possui o atributo `airdrop`.
-- **Motorola:** classe que herda de `Celular` e possui o atributo `botoesInterativos`.
-- **Bateria:** classe responsável por armazenar e controlar a porcentagem da bateria.
-
-Os atributos são privados (`private`), protegendo os dados e impedindo o acesso direto de outras classes.
-
-## Herança e generalização
-
-As classes `Apple` e `Motorola` utilizam `extends Celular` para herdar os atributos e métodos da classe principal.
-
-A herança evita a repetição de código, pois os comportamentos comuns ficam concentrados na classe `Celular`, enquanto cada subclasse mantém suas características específicas.
-
-## Construtores
-
-Os construtores são utilizados para inicializar os objetos com os valores necessários.
-
-As subclasses utilizam `super()` para chamar o construtor da classe `Celular`, permitindo inicializar os dados herdados e associar a bateria ao aparelho.
-
-## Métodos e comportamentos
-
-Os métodos representam as ações que os objetos podem executar. No projeto, existem métodos para controlar o volume, carregar a bateria e reproduzir o som do aparelho.
-
-O método `carregar(int quantidade)` verifica se a quantidade informada é válida, impedindo valores não positivos e cargas que ultrapassem 100%.
-
-## Associação entre objetos
-
-A classe `Celular` possui um objeto da classe `Bateria`. Dessa forma, cada celular pode acessar e controlar sua bateria por meio da associação entre as duas classes.
-
-Essa estrutura permite que a bateria seja representada como um objeto próprio, com atributos e comportamentos específicos.
-
-## Encapsulamento
-
-O encapsulamento protege os atributos das classes por meio do modificador `private`. Para consultar informações, são utilizados métodos públicos (`get`).
-
-A alteração dos dados deve ocorrer por métodos apropriados, respeitando as regras definidas no código. Por exemplo, o método `carregar()` valida a quantidade antes de alterar a porcentagem da bateria.
-
-## Testes e resultados
-
-O programa testa os objetos `Apple` e `Motorola`, verificando suas características, volume, porcentagem da bateria, tipo de conector e reprodução de som.
-
-Resultado obtido no terminal:
-
-```text
-APPLE
-Modelo: iPhone 17 Pro Max
-Airdrop: true
-Conector: Lightning
-Volume: 20
-Bateria: 80%
-Som do iPhone
-
-MOTOROLA
-Modelo: Moto G
-Botoes interativos: true
-Conector: USB-C
-Volume: 30
-Bateria: 70%
-Som do Motorola
-
-LISTA POLIMORFICA
-Modelo: iPhone 17 Pro Max
-Conector: Lightning
-Som do iPhone
--------------------------
-Modelo: Moto G
-Conector: USB-C
-Som do Motorola
-```
-
-## Lista polimórfica
-
-O projeto utiliza uma lista do tipo `List<Celular>` para armazenar objetos das subclasses `Apple` e `Motorola`.
-
-```java
-List<Celular> celulares = new ArrayList<>();
-
-celulares.add(apple);
-celulares.add(motorola);
-
-for (Celular celular : celulares) {
-    System.out.println("Modelo: " + celular.getModelo());
-    System.out.println("Conector: " + celular.tipoDeConector());
-    celular.tocarSom();
-    System.out.println("-------------------------");
-}
-```
-
-Mesmo que a variável do loop seja do tipo `Celular`, cada objeto executa o comportamento correspondente à sua classe. Isso acontece por meio do polimorfismo e da sobrescrita (`@Override`) dos métodos.
-
-## Classes abstratas e método abstrato
-
-A classe `Celular` foi definida como abstrata utilizando `abstract`. Isso impede que ela seja instanciada diretamente, pois representa uma estrutura geral para os celulares.
-
-Também foi criado o método abstrato `tipoDeConector()`, que obriga as subclasses concretas a implementarem seu próprio comportamento.
-
-```java
-public abstract class Celular {
-    public abstract String tipoDeConector();
-}
-```
-
-Na classe `Apple`, o método retorna `"Lightning"`, enquanto na classe `Motorola`, retorna `"USB-C"`.
-
-Assim, as subclasses compartilham a estrutura geral de `Celular`, mas fornecem suas próprias implementações para o tipo de conector e para o método `tocarSom()`.
-
+---
+## Checklist de Implementação
+- [x] Aula 1 - Classes e Objetos
+- [x] Aula 2 - Métodos
+- [x] Aula 3 - Encapsulamento
+- [x] Aula 4 - Construtores
+- [x] Aula 5 - Associação
+- [x] Aula 6 - Herança
+- [x] Aula 7 - Polimorfismo
+- [x] Aula 8 - Classes Abstratas
+- [x] Aula 9 - Interfaces
+---
 ## Perguntas de Reflexão
+### Aula 1 - Classes e Objetos
+**Pergunta:** "**Pergunta:** Por que precisamos criar uma classe `Passageiro`? Não seria mais fácil apenas criar variáveis soltas no main, como `String nomeAna = "Ana"` e `double saldoAna = 50.0`?
+**Pense:** E se o FiapRide tiver 1 milhão de usuários? Como a Classe ajuda a resolver isso?"
 
-### Aulas 2 - "Métodos e Comportamentos" - 20/08/26
+**Sua Resposta:**
+Criar uma classe permite organizar os dados e comportamentos de algo em uma única estrutura e, no nosso projeto, a classe Celular representa as características e ações que um celular possui, como modelo, volume e bateria. Se utilizássemos apenas variáveis soltas, o código ficaria desorganizado e difícil de manter, principalmente com muitos objetos. Com as classes, podemos criar vários celulares a partir de uma estrutura comum, mantendo cada objeto com seus próprios dados. Isso facilita a reutilização do código e a organização do sistema.
+---
+### Aula 2 - Métodos
+**Pergunta:** "Se nós podemos simplesmente fazer `passageiro.saldo = passageiro.saldo \+ 100` diretamente no código principal, por que dá tanto trabalho criar um método específico chamado `adicionarSaldo\(valor\)` para fazer isso? Quais seriam os riscos para a nossa startup de mobilidade se deixássemos qualquer programador alterar o saldo diretamente?"
 
-**\*Reflita: Se nós podemos simplesmente fazer passageiro.saldo = passageiro.saldo + 100 diretamente no código principal, por que dá tanto trabalho criar um método específico chamado adicionarSaldo(valor) para fazer isso? Quais seriam os riscos para a nossa startup de mobilidade se deixássemos qualquer programador alterar o saldo diretamente?*\**
-
+**Sua Resposta:**
 Se alterássemos o saldo diretamente no código principal, qualquer programador poderia modificar seu valor sem respeitar regras de negócio. Por exemplo, seria possível adicionar dinheiro indevidamente ou realizar alterações que não deveriam ser permitidas. Ao criar um método específico, como `adicionarSaldo(valor)`, podemos centralizar as regras de alteração e controlar melhor o que acontece com o saldo, evitando fraudes e falhas de lógica.
 
 No Projeto Celular, aplicamos esse mesmo princípio ao encapsulamento. Os atributos são privados (`private`), impedindo o acesso direto a eles fora da própria classe. Além disso, métodos como `carregar()` verificam se a quantidade informada é positiva e se a bateria não ultrapassará 100%. Dessa forma, protegemos os dados dos objetos e garantimos que suas alterações respeitem as regras definidas no código.
+---
+### Aula 3 - Encapsulamento
+**Pergunta:** "No nosso código, os atributos são `private`, mas os métodos `getSaldo\(\)` e `get Nome\(\)` são `public`. Por que é seguro deixar o `get` público, mas perigoso deixar o atributo original público?
+Pense bem: Qual a diferença entre dar a alguém uma CÓPIA de um documento seu, e entregar o documento ORIGINAL para a pessoa rasurar?"
 
-### Aula 3 - "Protegendo o Sistema - Encapsulamento (Getters e Setters)" - 27/08/26
-
-**\*No nosso código, os atributos são private, mas os métodos getSaldo() e getNome() são public. Por que é seguro deixar o get público, mas perigoso deixar o atributo original público?*\**
-**\*Pense bem: Qual a diferença entre dar a alguém uma CÓPIA de um documento seu, e entregar o documento ORIGINAL para a pessoa rasurar?*\**
-
+**Sua Resposta:**
 Os métodos `get` são públicos porque permitem consultar as informações de um objeto sem dar acesso direto ao atributo original. É como entregar uma cópia de um documento: a pessoa pode ler as informações, mas não consegue alterar o documento original por meio dessa cópia. Se os atributos fossem públicos, qualquer parte do código poderia modificá-los diretamente, sem respeitar as regras definidas pela classe.
 
 No nosso Projeto Celular, utilizamos atributos privados (`private`) e métodos públicos, como `getModelo()` e `getVolume()`, para permitir a consulta dessas informações com segurança. Além disso, a bateria possui o método `getPorcentagem()`, enquanto sua alteração é feita pelo método `carregar()`, que verifica se a quantidade informada é válida e impede que a carga ultrapasse 100%. Assim, protegemos os dados dos objetos e mantemos o controle sobre as alterações.
 
-### Aula 4 - "Construtores" - 10/09/26
+---
+### Aula 4 - Construtores
+**Pergunta:** "> "Na nossa classe `Veiculo`, nós tomamos duas decisões arquitetônicas muito importantes:
+> 1. Nós **não** criamos o método `setModelo\(\)`.
+> 2. O `setPlaca\(\)` foi criado como **privado**, e criamos um método público chamado `atualizarPlaca\(\)` para acessá-lo.
+> Pensando no mundo real e no Clean Code: Por que é um erro gravíssimo clicar em 'Gerar Getters e Setters para tudo' automaticamente na sua IDE? Como as nossas duas decisões acima protegem o s istema de fraudes e falhas de lógica?"
+Dica: Pense sobre o que pode ou não mudar fisicamente em um carro, e a diferença entre "alterar um dado no banco" e "executar um processo real no Detran"
 
-**\*Pensando no mundo real e no Clean Code: Por que é um erro gravíssimo clicar em "Gerar Getters e Setters para tudo" automaticamente na sua IDE? Como as nossas duas decisões acima protegem o sistema de fraudes e falhas de lógica?*\**
-
+**Sua Resposta:**
 Pensando em um mundo real, apenas gerar "Getter" e "Setter" no código do sistema pode acarretar em um sério problema de informações não reais. Ou seja, nem toda informação do objeto deve ser alterada livremente. Se tivéssemos um setter público para a bateria, mesmo que o atributo fosse privado, uma pessoa poderia simplesmente adicionar 150% de bateria ao objeto, invalidando a lógica do sistema.
 
 Por isso, é muito importante nos atentarmos para que, quando criarmos um atributo privado, não criemos automaticamente um setter público. Quando for necessário alterar um atributo, devemos criar métodos e condições que representem ações reais do objeto que possam ser validadas pelo sistema. Assim, protegemos o sistema contra fraudes e falhas de lógica.
@@ -154,48 +71,80 @@ public void carregar(int quantidade) {
 ```
 
 Aqui podemos observar que o usuário não pode simplesmente definir qualquer valor para a bateria. Ele informa uma quantidade que deseja adicionar, e o sistema verifica se ela é maior que zero e se a bateria, após o carregamento, não ultrapassará 100%.
+---
+### Aula 5 - Associação
+**Pergunta:** ""No construtor da `Viagem`, nós exigimos o objeto inteiro \(`Passageiro solicitante`\). Se o nosso resumo só precisa imprimir o nome da pessoa, não seria mais fácil e mais leve pedir apenas a String do nome no construtor da Viagem \(`String nomeDoPassageiro`\) em vez do objeto todo?"
 
-### Aula 5 - "Associação entre objetos" - 17/09/26
+Pense nas regras de negócio: O que acontece na hora que a Viagem acaba e o sistema precisa descontar o saldo? Se a Viagem tiver apenas a String "Ana Silva", ela consegue mexer no dinheiro dela?"
 
-***\*"No construtor da Viagem, nós exigimos o objeto inteiro (Passageiro solicitante). Se o nosso resumo só precisa imprimir o nome da pessoa, não seria mais fácil e mais leve pedir apenas a String do nome no construtor da Viagem (String nomeDoPassageiro) em vez do objeto todo?"*\***
-
-***\*Pense nas regras de negócio: O que acontece na hora que a Viagem acaba e o sistema precisa descontar o saldo? Se a Viagem tiver apenas a String "Ana Silva", ela consegue mexer no dinheiro dela?*\***
-
+**Sua Resposta:**
 Em resumo, não podemos apenar pedir a `String` do nome no construtor, pois uma `String` guarda apenas o dado e um objeto nos permite acessar os dados + comportamentos e atributos da pessoa. Por exemplo, se uma `Viagem` recebesse apenas a `String` `"Ana Silva"`, ela receberia o nome do passageiro, mas não teria acesso aos atributos do objeto `Passageiro` para realizar outras ações, como descontar diretamente do saldo da pessoa.
 
 Sendo assim, neste projeto, o `Celular` passou a ter uma relação com o objeto `Bateria` e ao invés de apenas armazenar um número, a `Bateria` agora é responsável por controlar sua porcentagem e regra de comportamento. Contudo, utilizar o objeto associado permite que cada classe mantenha suas próprias responsabilidades e regras de negócio, deixando o código mais organizado.
+---
+### Aula 6 - Herança
+**Pergunta:** ""No nosso código, a mãe `Veiculo` possui os atributos `placa` e `modelo` como `private`. Quando o `Carro` herda de `Veiculo`, ele recebe esses atributos, mas o código dentro de `Carro` NÃO consegue fazer `this.placa = "ABC"`. Ele é obrigado a usar o `super\(\)` ou o `setPlaca\(\)`.
 
-### Aula 6 - "A Árvore Genealógica - Herança (Generalização)" - 24/09/26
+Por que o Java não deixa a filha alterar as variáveis privadas da mãe diretamente? Qual o princípio das aulas passadas que isso está protegendo?""
 
-***\*"No nosso código, a mãe `Veiculo` possui os atributos `placa` e `modelo` como `private`. Quando o `Carro` herda de `Veiculo`, ele recebe esses atributos, mas o código dentro de Carro NÃO consegue fazer `this.placa = "ABC"`. Ele é obrigado a usar o `super()` ou o `setPlaca()`.*\***
-
-***\*Por que o Java não deixa a filha alterar as variáveis privadas da mãe diretamente? Qual o princípio das aulas passadas que isso está protegendo?*\***
-
+**Sua Resposta:**
 O Java não permite que a classe filha altere diretamente os atributos private da classe mãe, porque esses atributos estão encapsulados e só podem ser acessados diretamente dentro da própria classe onde foram declarados. Assim, isso protege os dados de alterações indevidas e permite que a classe mãe controle como seus atributos serão modificados. Por isso, a classe filha precisa utilizar métodos como `setPlaca()` ou o construtor com `super()`, protegendo o encapsulamento, que mantém os atributos protegidos e controla o acesso a eles (princípio das aulas anteriores).
 
 Neste projeto, isso se encaixa nos atributos da classe `Celular`, como `modelo` e `bateria`, que ficam protegidos pelo encapsulamento. As classes `Apple` e `Motorola`, mesmo herdando de `Celular`, não alteram esses atributos diretamente, utilizando métodos como `setModelo()` ou o construtor com `super()`. Assim, mantemos os dados protegidos e organizados dentro da estrutura de herança do projeto.
+---
+### Aula 7 - Polimorfismo
+**Pergunta:** "No nosso loop `for \(Veiculo veiculo : frota\)`, a variável `veiculo` é do tipo genérico `Veiculo`. Se esquecêssemos de criar o método `calcularAutonomia\(\)` lá na classe mãe `Veiculo`, nós conseguiríamos chamá-lo dentro do loop, mesmo sabendo que ele existe dentro do `Carro` e da `Moto`? Por que o contrato precisa existir na base da hierarquia?"
 
-### Aula 7 - "Muitas Formas: Polimorfismo de Sobrescrita" - 08/10/26
-
-***\*"No nosso loop `for (Veiculo veiculo : frota)`, a variável `veiculo` é do tipo genérico `Veiculo`. Se esquecêssemos de criar o método `calcularAutonomia()` lá na classe mãe `Veiculo`, nós conseguiríamos chamá-lo dentro do loop, mesmo sabendo que ele existe dentro do `Carro` e da `Moto`? Por que o contrato precisa existir na base da hierarquia?"*\***
-
+**Sua Resposta:**
 A variável `veiculo` é do tipo `Veiculo`, então ela só consegue acessar os métodos que existem na classe `Veiculo`. Mesmo que `Carro` e `Moto` possuam o método `calcularAutonomia()`, não seria possível chamá-lo pelo `veiculo` se esse método não existisse na classe mãe. O contrato precisa existir na classe base porque ele garante que todas as classes filhas terão esse comportamento. Assim, o loop pode trabalhar com qualquer objeto do tipo `Veiculo` e o polimorfismo permite que cada classe filha execute sua própria implementação do método.
 
 Nesse projeto, isso acontece de forma semelhante com o método `tocarSom()`. O método foi criado na classe `Celular`, que é a classe mãe, e depois foi sobrescrito nas classes `Apple` e `Motorola`. Por isso, na nossa lista `List<Celular>`, podemos percorrer os objetos usando uma variável do tipo `Celular` e chamar `celular.tocarSom()`. Mesmo sendo do tipo `Celular`, cada objeto executa a sua própria versão do método: o `Apple` executa "Som do iPhone" e o `Motorola` executa "Som do Motorola".
+---
+### Aula 8 - Classes Abstratas
+**Pergunta:** "Pense no mundo real: Faz sentido existir um objeto que é APENAS 'Veículo' sem ser um tipo específico? Você já entrou em uma concessionária e comprou "um veículo" genérico, sem ser carro, moto, caminhão ou nada disso? Por que, então, no código, precisamos EXPLICITAMENTE dizer ao Java que `Veiculo` é `abstract`? Por que ele não deduz isso sozinho?
 
-### Aula 8 - "O Molde Invisível - Classes Abstratas" - 15/10/26
+Pense: Se esquecermos de colocar `abstract`, qual o risco que corremos? Alguém pode criar `new V
+eiculo\(\)` e quebrar a lógica do nosso sistema?"
 
-**\*"Pense no mundo real: Faz sentido existir um objeto que é APENAS 'Veículo' sem ser um tipo específico? Você já entrou em uma concessionária e comprou "um veículo" genérico, sem ser carro, moto, caminhão ou nada disso?*\**
-
-**\*Por que, então, no código, precisamos EXPLICITAMENTE dizer ao Java que Veiculo é abstract? Por que ele não deduz isso sozinho?*\**
-
-**\*Pense: Se esquecermos de colocar abstract, qual o risco que corremos? Alguém pode criar new Veiculo() e quebrar a lógica do nosso sistema?"*\**
-
+**Sua Resposta:**
 No mundo real, não faz muito sentido comprar apenas um "veículo" genérico, pois normalmente compramos um tipo específico, como um carro ou uma moto. No nosso projeto, acontece algo semelhante: não criamos um celular genérico, mas sim objetos específicos das classes `Apple` e `Motorola`. Por isso, precisamos declarar `Celular` como `abstract`, indicando ao Java que essa classe serve como um modelo para as classes filhas, e não para criar objetos diretamente. O Java não deduz isso sozinho porque precisamos informar explicitamente essa intenção no código.
 
 Se esquecermos de colocar `abstract`, alguém poderá criar um objeto diretamente com `new Celular()`, mesmo que a intenção do projeto seja trabalhar apenas com tipos específicos de celulares. Isso permitiria criar um objeto genérico e poderia comprometer a lógica que queremos estabelecer. Ao tornar a classe abstrata, impedimos essa criação direta e garantimos que os objetos sejam instanciados por meio de classes concretas, como `Apple` e `Motorola`.
+---
+### Aula 9 - Interfaces
+**Pergunta:** "Por que Java permite herança simples \(apenas uma mãe\), mas múltipla implementação de interfaces \(vários contratos\)?
+Pense: Se `CarroEletrico` pudesse herdar de `Veiculo` e de `Bateria` ao mesmo tempo \(herança múltipla\), o que aconteceria se AMBAS as mães tivessem um método chamado `ligar\(\)`? Como as interfaces resolvem esse problema?"
 
-**## Evolução do projeto**
+**Sua Resposta:**
+O Java permite que uma classe herde diretamente de apenas uma classe, evitando ambiguidades que poderiam surgir quando duas classes mães definissem implementações conflitantes para os mesmos métodos. As interfaces permitem estabelecer contratos de comportamento que uma classe pode implementar, sem exigir que ela herde de várias classes. No nosso projeto, criamos a interface Recarregavel, que define o método recarregar(int percentual) e as constantes CARGA_MAXIMA e CARGA_MINIMA. A classe Celular implementa essa interface, permitindo que os celulares utilizem o comportamento de recarga por meio de um contrato comum.
+---
+## Desafios Técnicos Implementados
+### Desafio Pessoal (Seu Projeto)
+**Qual foi o domínio que você escolheu para seu projeto pessoal?**
+O domínio escolhido foi de dispositivos móveis, especificamente celulares, onde desenvolvi um sistema java para representá-los em diferentes marcas e funcionalidades.
+
+**Quais classes você criou?**
+- **Main:** classe principal responsável por executar os testes.
+- **Celular:** classe abstrata que define características e comportamentos comuns aos celulares.
+- **Apple:** classe que representa um celular Apple.
+- **Motorola:** classe que representa um celular Motorola.
+- **Bateria:** classe responsável por controlar a porcentagem de carga.
+- **Recarregavel:** interface que define o contrato de recarga dos celulares.
+
+**Qual foi o maior desafio técnico que você enfrentou?**
+[Descreva o desafio e como você o resolveu - 10-15 linhas]
+---
+## Conclusão
+**O que você aprendeu nestas 9 aulas?**
+Durante estas nove aulas, aprendi a estruturar programas utilizando os conceitos fundamentais da Programação Orientada a Objetos em Java, onde compreendi como criar classes e objetos, definir métodos, utilizar construtores e proteger informações por meio do encapsulamento, além de outros conceitos vistos em aula. Ao desenvolver o Projeto Celular, consegui aplicar esses conceitos de maneira prática e entender melhor como eles se complementam na construção de um programa.
+
+**Qual conceito foi mais difícil de entender?**
+O conceito que tive mais dificuldade de compreender foi a herança, pois precisei fazer diversas alterações no meu projeto para aplicá-la. Percebi que criar uma superclasse e suas classes filhas exige mais planejamento do que simplesmente criar várias classes que repetem o mesmo código, pois precisei conectar as classes Apple e Motorola por meio da classe Celular. Entretanto, compreendi a importância desse conceito, pois ele permite organizar melhor a estrutura do código, reutilizar funcionalidades e evitar repetições desnecessárias, contribuindo para um código mais limpo e organizado, de acordo com os princípios do Clean Code.
+
+**O que você melhoraria no seu projeto se pudesse refazer?**
+Se pudesse refazer o projeto, melhoraria a validação dos dados para garantir que os objetos não recebessem valores inválidos, além de adicionar novas funcionalidades, como diferentes modelos de celulares e outras operações relacionadas à bateria. Assim, também revisaria a estrutura das classes para manter cada responsabilidade bem definida e evitar repetições desnecessárias. Tornando o código mais robusto, organizado e fácil de ampliar no futuro.
+
+**## Evolução do projeto (commits)**
 
 ### 20/08/26 - Aula 2
 
@@ -269,3 +218,32 @@ Se esquecermos de colocar `abstract`, alguém poderá criar um objeto diretament
 * Utilização de um `for` para percorrer a lista utilizando o tipo `Celular`.
 * Adição da reflexão sobre polimorfismo e a necessidade do método na classe mãe.
 * Teste final da lista polimórfica com os objetos `Apple` e `Motorola`.
+
+### 15/10/26 - Aula 8
+
+* Transformação da classe `Celular` em uma classe abstrata utilizando `abstract`.
+* Declaração do método abstrato `tipoDeConector()` na classe `Celular`.
+* Implementação obrigatória do método `tipoDeConector()` nas classes filhas.
+* Implementação do método `tipoDeConector()` na classe `Apple`, retornando `"Lightning"`.
+* Implementação do método `tipoDeConector()` na classe `Motorola`, retornando `"USB-C"`.
+* Aplicação dos conceitos de classes abstratas e métodos abstratos.
+* Atualização do `Main.java` para testar os conectores dos celulares.
+* Manutenção da lista polimórfica utilizando `List<Celular>`.
+* Adição da reflexão sobre classes abstratas e a necessidade de impedir a instanciação direta da classe mãe.
+
+### 29/10/26 - Aula 9
+
+* Criação da interface `Recarregavel`.
+* Declaração do método `recarregar(int percentual)` na interface `Recarregavel`.
+* Criação das constantes `CARGA_MAXIMA` e `CARGA_MINIMA` na interface.
+* Implementação da interface `Recarregavel` na classe abstrata `Celular`, utilizando `implements`.
+* Implementação do método `recarregar()` na classe `Celular`.
+* Aplicação de validação para impedir percentuais de recarga inválidos.
+* Utilização das constantes da interface para validar os valores informados.
+* Atualização do `Main.java` para testar a recarga dos celulares por meio da interface.
+* Criação de um array do tipo `Recarregavel` contendo os objetos `Apple` e `Motorola`.
+* Utilização de um `for` para percorrer os objetos e executar o método `recarregar()`.
+* Teste da recarga dos celulares para 85%.
+* Teste de valor inválido utilizando o percentual de 120%.
+* Aplicação dos conceitos de interfaces, contratos de comportamento e polimorfismo.
+* Adição da reflexão sobre a implementação de interfaces e suas diferenças em relação à herança.
